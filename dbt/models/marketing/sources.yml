@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: prod_repl
+    database: TOOY_DEMO_DB
+    schema: PROD_REPL
+    tables: 
+        - name: customer
+        - name: orders
+        - name: payment_method
+        - name: price_trends
+        - name: product_price
+        - name: product_stock
+        - name: shipment

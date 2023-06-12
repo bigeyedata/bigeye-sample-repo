@@ -1,0 +1,30 @@
+type: BIGCONFIG_FILE
+
+tag_definitions:
+  - tag_id: PRIMARY_KEYS
+    column_selectors:
+      - name: "PROD_*.*.orders.order_id"
+      - name: "PROD_*.*.customer.customer_id"
+      - name: "PROD_*.*.shipment.shipment_id"
+  - tag_id: LOW_CARDINALITY
+    column_selectors:
+      - name: "PROD_*.*.*.shipment.status"
+
+tag_deployments:
+  - collection:
+      name: Tunes of our Youth Internal Ops
+      description: Operational checks for primary keys across sources
+    deployments:
+      - tag_id: PRIMARY_KEYS
+        metrics:
+          - saved_metric_id: COMPLETENESS_REQUIRED
+          - saved_metric_id: UNIQUENESS_REQUIRED
+      - tag_id: LOW_CARDINALITY
+        metrics:
+          - metric_type:
+              predefined_metric: COUNT_DISTINCT
+            metric_name: LOW_CARDINALITY
+            description: Expects low, stable cardinality.
+            threshold:
+              type: AUTO
+              sensitivity: MEDIUM

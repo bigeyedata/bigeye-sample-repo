@@ -1,0 +1,42 @@
+type: BIGCONFIG_FILE
+
+tag_deployments:
+  - collection:
+      name: Order Statistics
+      description: Numeric distributions for unit pricing
+    deployments:
+      - column_selectors:
+          - name: "PROD_*.*.*.price_per_unit"
+        metrics:
+          - metric_type:
+              predefined_metric: AVERAGE
+            metric_name: '[Average] Unit Price'
+            schedule_frequency:
+              interval_type: MINUTES
+              interval_value: 0
+          - metric_type:
+              predefined_metric: VARIANCE
+            metric_name: '[Variance] Unit Price'
+            schedule_frequency:
+              interval_type: MINUTES
+              interval_value: 0
+          - metric_type:
+              predefined_metric: MAX
+            metric_name: '[Max] Unit Price'
+            schedule_frequency:
+              interval_type: MINUTES
+              interval_value: 0
+          - metric_type:
+              predefined_metric: MIN
+            metric_name: '[Min] Unit Price'
+            schedule_frequency:
+              interval_type: MINUTES
+              interval_value: 0
+          - metric_type:
+              predefined_metric: AVERAGE
+            metric_name: '[Average] Unit Price by Shipping State'
+            schedule_frequency:
+              interval_type: MINUTES
+              interval_value: 0
+            group_by:
+              - shipping_state

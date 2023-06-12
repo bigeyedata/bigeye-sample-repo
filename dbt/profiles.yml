@@ -1,0 +1,13 @@
+bigeye_sample:
+  outputs:
+    dev:
+      account: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_HOST') }}"
+      database: DBT_ANALYTICS
+      password: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_PASSWORD') }}"
+      role: DBT_ROLE
+      schema: BIGEYE_SAMPLE
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_USER') }}"
+      warehouse: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_WAREHOUSE') }}"
+  target: dev

@@ -1,0 +1,34 @@
+type: BIGCONFIG_FILE
+
+row_creation_times:
+  column_selectors:
+    - name: "PROD_*.*.*.update_timestamp"
+    - name: "PROD_*.*.*.order_timestamp"
+    - name: "PROD_*.*.*.status_timestamp"
+
+saved_metric_definitions:
+  metrics:
+    - saved_metric_id: COMPLETENESS_REQUIRED
+      metric_type:
+        type: PREDEFINED
+        predefined_metric: PERCENT_NULL
+      metric_name: completeness_required
+      description: Requires that field contain a value.  Will alert if the percent null exceeds 0%.
+      threshold:
+        type: CONSTANT
+        upper_bound: 0
+      schedule_frequency:
+        interval_type: MINUTES
+        interval_value: 0
+    - saved_metric_id: UNIQUENESS_REQUIRED
+      metric_type:
+        type: PREDEFINED
+        predefined_metric: COUNT_DUPLICATES
+      metric_name: uniqueness_required
+      description: Requires that a field not contain duplicates.  Will alert if the duplicate count exceeds 0.
+      threshold:
+        type: CONSTANT
+        upper_bound: 0
+      schedule_frequency:
+        interval_type: MINUTES
+        interval_value: 0
