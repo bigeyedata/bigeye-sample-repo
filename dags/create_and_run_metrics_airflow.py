@@ -28,6 +28,17 @@ with DAG(
                 "notification_channels": {
                     "slack": "#data-alerts"
                 }
+            },
+            {
+                "schema_name": "TOOY_DEMO_DB.PROD_REPL",
+                "table_name": "ORDERS",
+                "column_name": "PRODUCT_TYPE",
+                "user_defined_metric_name": "Value in List",
+                "metric_name": "PERCENT_VALUE_IN_LIST",
+                "default_check_frequency_hours": 0,
+                "notification_channels": {
+                    "slack": "#data-alerts"
+                }
              }
         ],
         dag=dag

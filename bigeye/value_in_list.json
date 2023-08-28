@@ -1,0 +1,45 @@
+{
+    "scheduleFrequency": {
+        "intervalType": "DAYS_TIME_INTERVAL_TYPE",
+        "intervalValue": 1
+    },
+    "thresholds": [
+        {
+            "autoThreshold": {
+                "bound": {
+                    "boundType": "UPPER_BOUND_SIMPLE_BOUND_TYPE",
+                    "value": -1.0
+                },
+                "modelType": "UNDEFINED_THRESHOLD_MODEL_TYPE"
+            }
+        },
+        {
+            "autoThreshold": {
+                "bound": {
+                    "boundType": "LOWER_BOUND_SIMPLE_BOUND_TYPE",
+                    "value": -1.0
+                },
+                "modelType": "UNDEFINED_THRESHOLD_MODEL_TYPE"
+            }
+        }
+    ],
+    "warehouseId": 1071,
+    "datasetId": 3647670,
+    "metricType": {
+        "predefinedMetric": {
+            "metricName": "PERCENT_VALUE_IN_LIST"
+        }
+    },
+    "parameters": [
+        {
+            "key": "list",
+            "stringValue": "ISSUE_STATUS_NEW,ISSUE_STATUS_MONITORING,ISSUE_STATUS_CLOSED,ISSUE_STATUS_ACKNOWLEDGED"
+        }
+    ],
+    "lookback": {
+        "intervalType": "DAYS_TIME_INTERVAL_TYPE",
+        "intervalValue": 2
+    },
+    "grainSeconds": 86400,
+    "lookbackType": "METRIC_TIME_LOOKBACK_TYPE"
+}
